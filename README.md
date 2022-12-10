@@ -1,1 +1,4 @@
 # SQL-Project
+TaTa https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Tata/MyXvBcppsW2FkNYCX_Tata_GpC3yAaqkeAujahRo_1670671061878_completion_certificate.pdf
+pwc https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/PwC%20Switzerland/a87GpgE6tiku7q3gu_PwC%20Switzerland_GpC3yAaqkeAujahRo_1670481643742_completion_certificate.pdf
+Standard bank https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Standard%20Bank%20/mq38jBo7o3z25RQQb_Standard%20Bank_GpC3yAaqkeAujahRo_1670573873851_completion_certificate.pdf
