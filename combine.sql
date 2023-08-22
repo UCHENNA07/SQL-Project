@@ -282,6 +282,7 @@ inner join address
 on customer.address_id =address.address_id
 select * from customer_data
 
+  
 -- create or replace view customer_data as
 select first_name, last_name, address, district from customer
 inner join address
@@ -289,9 +290,70 @@ on customer.address_id = address.address_id
 select * from customer_data
 
 -- drop view customer_data
--- drop view customer_data
 -- alter view customer_data rename to custom
 
 
 -- import/export files
+
+-- Window Functions
+-- Window functions are functions that allow you to perform calculations based on a specified group of data. They are typically used to 
+-- analyze and manipulate data within partitions or windows.
+-- OVER() -- It allows you perform calculations or aggregate functions over specific partitions
+-- PARTITION BY -- This is used to divide the results to be aggregated
+-- ORDER BY -- It's optional but can be used to order the rows within the partition
+
+
+select order_id, order_date, order_total, sum(order_total)
+over(order by order_id) as running_total from orders
+order by order_id
+
+
+select order_id, order_date, order_total, sum(order_total) 
+over(partition by order_date order by order_id) as running_total from orders
+order by order_id
+
+-- Window funtions that only work with the OVER-CLAUSE
+-- RANK(). It allows us to find the rank of a current row within a partition
+select emp_no, department, salary, avg(salary)
+over(partition by department) as dept_avg,
+rank() over(order by salary desc) as overall_rank,
+rank() over(partition by department order by salary desc) as dept rank
+from employees
+
+
+-- ROW_NUMBER() - It assigns a unique number to each row within it's partition
+-- NTILE() - It divides the row into specified equal-sized groups
+-- FIRST_VALUE() and LAST_VALUE() - Returns the first and last values within the partition
+-- LEAD() - It accesses the value of argument from the current leading row in the partition
+-- LAG() - It accesses the value of argument from the current lagging row in the partition
+-- DENSE_RANK - It retuns the rank of the rows in a partition without gaps
+-- PERCENT_RANK - It returns percentage of ranke value
+
+
+
+-- TRIGGERS
+-- Triggers are the sql codes that are automatically executed in response to certain events on a particular table. These are used to maintain 
+-- the in integrity of the data
+
+
+-- To drop trigger, the trigger must be present in your database
+drop trigger sample_trigger;
+-- We can display trigger from a database
+show trigger in database_name
+
+-- BEFORE INSERT triggers are used to update or validate record values before they're saved to the database
+create trigger sample_trigger
+before insert 
+on student
+for each row
+set new.marks = new.marks + 100
+
+
+-- AFTER INSERT triggers are used to access field values that are set by the system to effect changes in other records
+create trigger total_marks
+after insert 
+on student
+for each row
+insert into final_marks values(new.marks)
+
 
