@@ -293,8 +293,6 @@ select * from customer_data
 -- alter view customer_data rename to custom
 
 
--- import/export files
-
 -- Window Functions
 -- Window functions are functions that allow you to perform calculations based on a specified group of data. They are typically used to 
 -- analyze and manipulate data within partitions or windows.
@@ -353,7 +351,7 @@ set new.marks = new.marks + 100
 create trigger total_marks
 after insert 
 on student
-for each row
+for each row 
 insert into final_marks values(new.marks)
 
 
