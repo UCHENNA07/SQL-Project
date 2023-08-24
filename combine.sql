@@ -43,6 +43,7 @@ select * from customer where first_name like '_her%'
 select min(replacement_cost) from film;
 select round(avg(replacement_cost), 3) from film
 
+  
 
 select customer_id, sum(amount) from payment
 group by customer_id 
