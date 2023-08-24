@@ -331,8 +331,8 @@ from employees
 
 
 -- TRIGGERS
--- Triggers are the sql codes that are automatically executed in response to certain events on a particular table. These are used to maintain 
--- the in integrity of the data
+-- Triggers are sql codes that are automatically executed in response to certain events on a particular table. These are used to maintain 
+-- data integrity
 
 
 -- To drop trigger, the trigger must be present in your database
