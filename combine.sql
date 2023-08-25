@@ -90,11 +90,37 @@ inventory.film_id = film.film_id
 -- Time stamps
 show all
 show timezone
-select now()
-select timeofday()
-select current_time
-select current_date
 
+
+
+-- Aggregate Functions
+SUM() - Returns the sum
+AVG() - Returns the average value
+COUNT() - Returns the number of rows
+MIN() - Returns the smallest value
+MAX() - Returns the largest value
+
+-- Scalar Functions
+UPPER() - Returns the uppercase of strings in a row
+LOWER() - Returns the lowercase of strings in a row
+LENGTH() - Returns the number of characters in a string
+ROUND() - Rounds a number to a specified number of decimal places
+MID() - Returns the middle character from a string
+
+-- Date and Time Functions
+current_time() - Returns the current time
+current_date() - Returns the current date
+now() - Returns the current date and time
+YEAR() - Returns the year of date
+MONTH() - Returns the month of date
+DAY() - Returns the day of date
+
+-- String Functions
+LTRIM() - Removes the leading whitespace of the string
+RTRIM() - Removes the trailing whitespace of the string
+TRIM() - Removes both leading and trailing whitespace of the string
+SUBSTRING() - Extract a specific portion of a string
+REPLACE() - Replaces all occurances of a specific string with another string
 
 -- Extract function
 select extract(year from payment_date) as pay_year from payment
