@@ -382,3 +382,38 @@ for each row
 insert into final_marks values(new.marks)
 
 
+-- STORED PROCEDURES
+-- Stored procedures are a group of sql statement that is been created and stored in that database. It can also accept input parameters.
+-- Syntax for creating stored procedures
+Create Procedure TEST
+AS
+Select * from employees
+
+-- How to use stored procedures 
+EXEC TEST
+
+Create procedure Temp_Employee
+as
+create table data_values(
+Job_Title varchar(100),
+Employee_salary int,
+Age int(),
+Full_name varchar(50)
+)
+
+insert into data_values
+values
+('Data Analyst', 78000, 32, 'Mark Henry')
+('Data Scientist' 82000, 34, 'Julius Ben')
+
+select * from data_values
+
+EXEC data_values
+
+
+
+
+
+
+
+
