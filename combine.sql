@@ -410,9 +410,13 @@ select * from data_values
 
 EXEC data_values
 
-
-
-
+-- Updating a stored procedure
+Create procedure Job_Name
+@Job_Title varchar(50)
+as 
+Update data_values
+set Job_Title = @Job_Title
+where Job_Title = 'Data Analyst'
 
 
 
