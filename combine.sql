@@ -360,12 +360,6 @@ from employees
 -- Triggers are sql codes that are automatically executed in response to certain events on a particular table. These are used to maintain 
 -- data integrity
 
-
--- To drop trigger, the trigger must be present in your database
-drop trigger sample_trigger;
--- We can display trigger from a database
-show trigger in database_name
-
 -- BEFORE INSERT triggers are used to update or validate record values before they're saved to the database
 create trigger sample_trigger
 before insert 
@@ -382,6 +376,12 @@ for each row
 insert into final_marks values(new.marks)
 
 
+-- To drop trigger, the trigger must be present in your database
+drop trigger sample_trigger;
+-- We can display trigger from a database
+show trigger in database_name
+
+  
 -- STORED PROCEDURES
 -- Stored procedures are a group of sql statement that is been created and stored in that database. It can also accept input parameters.
 -- Syntax for creating stored procedures
@@ -419,5 +419,23 @@ set Job_Title = @Job_Title
 where Job_Title = 'Data Analyst'
 
 
+Create or Alter procedure usp_EmpSal 
+@Sal int, @DeptID int
+as
+select * from employee
+where Salary > @Sal and DeptID = @DeptID
+
+usp_EmpSal @Sal = 30000, @DeptID = 1
 
 
+create or alter procedure usp_hirelog as
+Begin
+declare @LastHired date
+select @LastHired = max(HireDate) from Employees
+if Month(@LastHired) = Month(GetDate()) and Year(@LastHired) = Year(GetDate())
+insert into Hire_log Values (@LastHired)
+End
+
+  
+-- Drop procedure
+drop procedure usp_EmpSal
