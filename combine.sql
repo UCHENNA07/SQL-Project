@@ -439,3 +439,15 @@ End
   
 -- Drop procedure
 drop procedure usp_EmpSal
+
+
+-- INDEXES
+-- Indexes are use in sql queries to find data from a table quickly. It reduces time for retriving data
+create INDEX Employee_Salary_Index
+on Employee (Salary asc)
+
+
+-- Drop index
+DROP INDEX Employee_Salary_Index ON employee
+
+
